@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.theCyberian.RestAPi.dbLayer.Customer;
 import com.theCyberian.RestAPi.dbLayer.DatabaseAccessLayer;
 
+
 public class CustomerService {
 
 	public ArrayList<Customer> getAllCustomers() {
@@ -37,8 +38,10 @@ public class CustomerService {
 		
 		return c1;
 	}
-//	public static void main(String ar[]) {
-//		CustomerService customerService = new CustomerService();
-//		System.out.println(customerService.getAllCustomers().size());
-//	}
+	
+	public void addCustomer(Customer customer) {
+		DatabaseAccessLayer dbObject = new DatabaseAccessLayer();
+		dbObject.addCustomerToTable(customer);
+	}
+
 }

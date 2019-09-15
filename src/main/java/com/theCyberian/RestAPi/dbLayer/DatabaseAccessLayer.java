@@ -150,10 +150,9 @@ public class DatabaseAccessLayer {
 		}
 	}
 
-	
 	public void addItemsToTable(Items item) {
 		try {
-			statement.executeUpdate("INSERT INTO itemDetails(itemName) VALUES ('"+item.getItemName()+"')");
+			statement.executeUpdate("INSERT INTO itemDetails(itemName) VALUES ('" + item.getItemName() + "')");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -165,10 +164,28 @@ public class DatabaseAccessLayer {
 				e.printStackTrace();
 			}
 		}
-
 	}
-//	public static void main(String args[]) {
-//		DatabaseAccessLayer obj = new DatabaseAccessLayer();
-//		System.out.println(obj.getCustomerDataFromDb());
-//	}
+
+	public void addCustomerToTable(Customer customer) {
+		try {
+			String queryString = "INSERT INTO customer(name, initial, address1, address2, address3, pincode, phone1, phone2, email) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+			String query = String.format(queryString, customer.getName(), customer.getIntial(),
+					customer.getAddressLine1(), customer.getAddressLine2(), customer.getAddressLine3(),
+					customer.getPincode(), customer.getPhone1(), customer.getPhone2(), customer.getEmail());
+
+			statement.executeUpdate(query);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+//				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 }

@@ -13,9 +13,10 @@ import javax.ws.rs.core.MediaType;
 import com.theCyberian.RestAPi.dbLayer.Items;
 import com.theCyberian.RestAPi.services.ItemsService;
 
-@Path("/getItems")
+@Path("/items")
 public class ItemsResource {
 	@GET
+	@Path("/getItems")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Items> getItems() {
 		ItemsService itemService = new ItemsService();
@@ -23,7 +24,7 @@ public class ItemsResource {
 	}
 
 	@GET
-	@Path("/{itemId}")
+	@Path("/getItems/{itemId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Items getItemsId(@PathParam("itemId") String itemId) {
 		ItemsService itemService = new ItemsService();
@@ -31,6 +32,7 @@ public class ItemsResource {
 	}
 
 	@POST
+	@Path("/addItems")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Items addItems(Items item) {
