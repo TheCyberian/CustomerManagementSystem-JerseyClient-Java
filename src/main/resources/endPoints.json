@@ -1,11 +1,14 @@
 {
-	"addCustomer": "http://127.0.0.1:5000/addCustomer",
-	"addItems": "http://127.0.0.1:5000/addItem",
+	"addCustomer": "hhttp://localhost:8983/RestAPi/applicationInterface/customers/addCustomer",
+	"addItems": "http://localhost:8983/RestAPi/applicationInterface/items/addItems",
+	
 	"addOrder": "http://127.0.0.1:5000/addOrder",
-	"getItems": "http://127.0.0.1:5000/getItems",
-	"getItemWithId": "http://127.0.0.1:5000/getItems/%d",
+	
+	"getItems": "http://localhost:8983/RestAPi/applicationInterface/items/getItems",
+	"getItemWithId": "http://localhost:8983/RestAPi/applicationInterface/items/getItems/%d",
 	"getCustomer": "http://localhost:8983/RestAPi/applicationInterface/customers/getCustomer",
 	"getCustomerWithId": "http://localhost:8983/RestAPi/applicationInterface/customers/getCustomer/%d",
+	
 	"getCustomerOrder": "http://127.0.0.1:5000/getCustomerOrder/%d",
 	"getItemOrders": "http://127.0.0.1:5000/getItemOrders/%d"
 }
