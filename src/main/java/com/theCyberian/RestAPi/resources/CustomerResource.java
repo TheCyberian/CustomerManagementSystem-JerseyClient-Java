@@ -15,7 +15,7 @@ import com.theCyberian.RestAPi.services.CustomerService;
 public class CustomerResource {
 
 	@GET
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Customer> getCustomers() {
 		CustomerService customerService = new CustomerService();
 		return (List<Customer>) customerService.getAllCustomers();

@@ -20,4 +20,18 @@ public class ItemsService {
 
 		return itemsForService;
 	}
+	
+	public Items getItemWithId(String itemId) {
+		DatabaseAccessLayer dbObject = new DatabaseAccessLayer();
+		ArrayList<String> itemsData = dbObject.getItemDataFromDb(itemId);
+		
+		Items i1 = new Items(itemsData.get(0),itemsData.get(1));
+		
+		return i1;
+	}
+	
+	public void addItem(Items item) {
+		DatabaseAccessLayer dbObject = new DatabaseAccessLayer();
+		dbObject.addItemsToTable(item);
+	}
 }

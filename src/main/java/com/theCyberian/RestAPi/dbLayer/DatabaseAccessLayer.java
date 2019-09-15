@@ -119,6 +119,54 @@ public class DatabaseAccessLayer {
 		}
 	}
 
+	public ArrayList<String> getItemDataFromDb(String itemId) {
+
+		ArrayList<String> arrayOfItemsData = new ArrayList<String>();
+
+		try {
+			resultSet = statement.executeQuery("SELECT * FROM itemDetails WHERE itemNumber = '" + itemId + "'");
+			ResultSetMetaData rsmd = resultSet.getMetaData();
+
+			int columnsNumber = rsmd.getColumnCount();
+
+			while (resultSet.next()) {
+				for (int i = 1; i <= columnsNumber; i++) {
+					arrayOfItemsData.add(resultSet.getString(i).toString());
+					System.out.println(resultSet.getString(i).toString());
+				}
+			}
+			return arrayOfItemsData;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return arrayOfItemsData;
+		} finally {
+			try {
+				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	
+	public void addItemsToTable(Items item) {
+		try {
+			statement.executeUpdate("INSERT INTO itemDetails(itemName) VALUES ('"+item.getItemName()+"')");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+//				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
 //	public static void main(String args[]) {
 //		DatabaseAccessLayer obj = new DatabaseAccessLayer();
 //		System.out.println(obj.getCustomerDataFromDb());
