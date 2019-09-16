@@ -1,0 +1,11 @@
+{
+	"addCustomer": "http://127.0.0.1:5000/addCustomer",
+	"addItems": "http://127.0.0.1:5000/addItem",
+	"addOrder": "http://127.0.0.1:5000/addOrder",
+	"getItems": "http://127.0.0.1:5000/getItems",
+	"getItemWithId": "http://127.0.0.1:5000/getItems/%d",
+	"getCustomer": "http://127.0.0.1:5000/getCustomer",
+	"getCustomerWithId": "http://127.0.0.1:5000/getCustomer/%d",
+	"getCustomerOrder": "http://127.0.0.1:5000/getCustomerOrder/%d",
+	"getItemOrders": "http://127.0.0.1:5000/getItemOrders/%d"
+}
